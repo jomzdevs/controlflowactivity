@@ -5,9 +5,9 @@ import java.util.Scanner;
  */
 public class ControlFlowActivity {
 
-    private static void evenOrOdd(){
+  public static void evenOrOdd(){
         int number, remainder;
-        System.out.println("Please Enter a Number:");
+        System.out.println("\tPlease Enter a Number:");
         Scanner scan = new Scanner(System.in);
         number = scan.nextInt();
         scan.close();
@@ -18,27 +18,22 @@ public class ControlFlowActivity {
         else
             System.out.println(number + " Great! A Odd Number");
     }
-   private static void FactorialNum(){
-        int number;
-        long factorial = 1;
-        Scanner input =  new Scanner(System.in);
+  public static void FactorialNum(){
 
-        System.out.println("Enter the Number:");
-         number = input.nextInt();
-         input.close();
+    Scanner input = new Scanner(System.in);
+    System.out.print("\t Enter a number: ");
+    int num = input.nextInt();
 
-        if( number < 0)
-            System.out.println("Can't find the factorial!");
-        else if (number <= 1)
-        System.out.printf("%d! - %d", number, factorial);
-        else {
-            for(int counter = number; counter >=2; counter--) {
-                factorial = factorial*counter;
-            }
-            System.out.printf("%d! = %d",number, factorial);
-           }
+    long factorial = 1;
+
+    for (int i = 1; i <= num; ++i) {
+        // factorial = factorial * i;
+        factorial *= i;
     }
-  private static void FibonacciSeries(){
+    System.out.printf("Factorial of %d = %d", num, factorial);
+}
+    
+  public static void FibonacciSeries(){
        
             Scanner input = new Scanner(System.in);
             
@@ -60,7 +55,7 @@ public class ControlFlowActivity {
             sTerm = nxtTerm;
            }
     }
-private static void LeapYear(){
+  public static void LeapYear(){
     Scanner input = new Scanner(System.in);
 
     System.out.print("\t Please Enter a Year: ");
@@ -89,10 +84,10 @@ private static void LeapYear(){
     
     if(leap)
     //message if the input is true
-        System.out.print("\t-->" + year + "is a Leap Year! That's Great!");
+        System.out.print("\t-->" + year + " is a Leap Year! That's Great!\t");
     else
      //message if the input is false
-    System.out.print("\t-->" + year + "is a not Leap Year! WOAH! That's Surprised Me!");
+    System.out.print("\t-->" + year + " is a not Leap Year! WOAH! That's Surprised Me!\t");
 }
   private static void SimplePaNaCalculatorTo(){
         char operator;
@@ -138,72 +133,59 @@ private static void LeapYear(){
 
 
 
-    static void divider(){
-        for (int i = 1; i < 50; i++){
-            System.out.print("~");
-        }
-        System.out.println();
-    }
     /**
      * @param args
      */
     public static void main(String[] args) {
-           while (true){
 
-            divider();
+        boolean exit = false;
+           while (!false){
+
 
             Scanner UserInput = new Scanner(System.in);
-
-            String UserOptions[] = new String[]{
-                "Welcome!",
-                "1. Odd or Even Number Determinator",
-                "2. The Factorial Revealer",
-                "3. Fibonacci Series",
-                "4. Leap Year Seeker",
-                "5. Mas Simple pa sa Simpleng Calculator",
-            };
-            System.out.println("Please Choose a Program to perform");
-            
-            for (String string : UserOptions){
-                System.out.println("\t"+ string);
-            }
-            System.out.print("Please Choose a Number:");
+            System.out.println("*********************************************");
+            System.out.println("Please Choose a Program to perform\t");
+            System.out.println("1. It is Even? or Odd?");
+            System.out.println("2. Factorial Number Printer");
+            System.out.println("3. The Fibonacci Series");
+            System.out.println("4. Guessing the Leap Year");
+            System.out.println("5. Simple Java Calculator");
+            System.out.println("6. Exit");
+           
+            System.out.print("\t Please Choose a Number:");
             int option = UserInput.nextInt();
 
             switch (option) {
                 case 1:
-                    System.out.println("* " + UserOptions[option -1].substring(3));
+                    System.out.println("TODO: EVEN OR ODD");
                     evenOrOdd();
                     break;
-
-
                 case 2:
-                    System.out.println("* " + UserOptions[option - 1].substring(3));
+                    System.out.println("TODO: FACTORIAL");
                     FactorialNum();
                     break;
-                
                 case 3:
-                    System.out.println("* " + UserOptions[option - 1].substring(3));
+                    System.out.println("TODO: FIBONACCI");
                     FibonacciSeries();
                     break;
-
-
                 case 4:
-                    System.out.println("* " + UserOptions[option - 1].substring(3));
+                    System.out.println("TODO: LEAP YEAR");
                     LeapYear();
                     break;
-
-
                 case 5:
-                    System.out.println("* " + UserOptions[option - 1].substring(3));
+                    System.out.println("TODO: SIMPLE CALCULATOR");
                     SimplePaNaCalculatorTo();
+                    break;
+                case 6:
+                    System.out.println("EXIT");
+                    exit = false;
                     break;
             
                 default:
-                System.out.println("TODO: default");
+                System.out.println("\n");
                     break;
             }
-            System.err.println();
+            
            }
         }
     }
